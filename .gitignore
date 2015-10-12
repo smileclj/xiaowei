@@ -42,6 +42,6 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
-target/*
-logs/*
-xiaowei.iml
+/target
+/logs
+/xiaowei.iml
