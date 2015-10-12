@@ -11,6 +11,6 @@
     <title></title>
 </head>
 <body>
-  测试页面${user}
+  测试页面${user}${base}
 </body>
 </html>

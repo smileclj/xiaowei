@@ -46,3 +46,9 @@
 10:12 14:46:58.065 DEBUG o.m.spring.SqlSessionFactoryBean:473 -> Property 'mapperLocations' was not specified or no matching resources found
 10:12 14:46:59.341 DEBUG o.m.spring.SqlSessionFactoryBean:427 -> Parsed configuration file: 'class path resource [mybatis-config.xml]'
 10:12 14:46:59.385 DEBUG o.m.spring.SqlSessionFactoryBean:473 -> Property 'mapperLocations' was not specified or no matching resources found
+10:12 15:31:31.935 DEBUG o.a.ibatis.logging.LogFactory:115 -> Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+10:12 15:31:32.213 DEBUG o.m.spring.SqlSessionFactoryBean:427 -> Parsed configuration file: 'class path resource [mybatis-config.xml]'
+10:12 15:31:32.560 DEBUG o.m.spring.SqlSessionFactoryBean:473 -> Property 'mapperLocations' was not specified or no matching resources found
+10:12 16:22:01.746 DEBUG o.a.ibatis.logging.LogFactory:115 -> Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+10:12 16:22:02.133 DEBUG o.m.spring.SqlSessionFactoryBean:427 -> Parsed configuration file: 'class path resource [mybatis-config.xml]'
+10:12 16:22:02.463 DEBUG o.m.spring.SqlSessionFactoryBean:473 -> Property 'mapperLocations' was not specified or no matching resources found

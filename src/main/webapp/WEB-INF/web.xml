@@ -43,7 +43,7 @@
         <url-pattern>*.htm</url-pattern>
     </servlet-mapping>
 
-    <!--编码-->
+    <!--解决 POST 方式造成的中文乱码-->
     <filter>
         <filter-name>encoding</filter-name>
         <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
