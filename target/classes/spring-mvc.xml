@@ -12,7 +12,8 @@
 
     <!-- 自动扫描且只扫描@Controller -->
     <context:component-scan base-package="com.clj.panda.controller" />
-    <context:annotation-config />
+
+    <!--<context:annotation-config />--><!-- 使用component-scan后可省略-->
 
     <mvc:annotation-driven content-negotiation-manager="contentNegotiationManager">
         <mvc:message-converters>

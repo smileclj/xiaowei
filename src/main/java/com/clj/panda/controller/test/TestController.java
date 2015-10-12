@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import javax.servlet.ServletOutputStream;
@@ -27,6 +28,13 @@ public class TestController {
 
     @Resource
     private TestService userService;
+
+    @RequestMapping(value="/testView.htm")
+    public ModelAndView testView(){
+        ModelAndView view = new ModelAndView("page/test/TestJsp");
+        view.addObject("user","panda");
+        return view;
+    }
 
     @RequestMapping(value="/getUser.htm")
     public String getUser(){

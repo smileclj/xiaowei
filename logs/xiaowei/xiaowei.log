@@ -1,50 +1,48 @@
-10:10 18:26:20.684 DEBUG o.a.ibatis.logging.LogFactory:115 -> Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
-10:10 18:26:21.050 DEBUG o.m.spring.SqlSessionFactoryBean:427 -> Parsed configuration file: 'class path resource [mybatis-config.xml]'
-10:10 18:26:21.522 DEBUG o.m.spring.SqlSessionFactoryBean:473 -> Property 'mapperLocations' was not specified or no matching resources found
-10:10 18:26:22.787 DEBUG o.mybatis.spring.SqlSessionUtils:106 -> Creating a new SqlSession
-10:10 18:26:22.836 DEBUG o.mybatis.spring.SqlSessionUtils:142 -> SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@29e6eb25] was not registered for synchronization because synchronization is not active
-10:10 18:26:22.910 DEBUG o.m.s.t.SpringManagedTransaction:85 -> JDBC Connection [jdbc:mysql://localhost:3306/xiaowei?useUnicode=true&amp;characterEncoding=utf8, UserName=root@localhost, MySQL Connector Java] will not be managed by Spring
-10:10 18:26:22.920 DEBUG c.c.p.d.t.T.insertDate:132 -> ooo Using Connection [jdbc:mysql://localhost:3306/xiaowei?useUnicode=true&amp;characterEncoding=utf8, UserName=root@localhost, MySQL Connector Java]
-10:10 18:26:22.945 DEBUG c.c.p.d.t.T.insertDate:132 -> ==>  Preparing: INSERT INTO test_date(timeOne,timeTwo,timeThree) VALUES(?,?,?) 
-10:10 18:26:23.069 DEBUG c.c.p.d.t.T.insertDate:132 -> ==> Parameters: 2015-10-283 18:26(String), 1444472782774(Long), 2015-10-10 18:26:22.774(Timestamp)
-10:10 18:26:23.112 DEBUG o.mybatis.spring.SqlSessionUtils:170 -> Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@29e6eb25]
-10:10 18:32:01.568 DEBUG o.a.ibatis.logging.LogFactory:115 -> Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
-10:10 18:32:02.076 DEBUG o.m.spring.SqlSessionFactoryBean:427 -> Parsed configuration file: 'class path resource [mybatis-config.xml]'
-10:10 18:32:02.432 DEBUG o.m.spring.SqlSessionFactoryBean:473 -> Property 'mapperLocations' was not specified or no matching resources found
-10:10 18:32:03.317 DEBUG o.mybatis.spring.SqlSessionUtils:106 -> Creating a new SqlSession
-10:10 18:32:03.328 DEBUG o.mybatis.spring.SqlSessionUtils:142 -> SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@56ace400] was not registered for synchronization because synchronization is not active
-10:10 18:32:03.383 DEBUG o.m.s.t.SpringManagedTransaction:85 -> JDBC Connection [jdbc:mysql://localhost:3306/xiaowei?useUnicode=true&amp;characterEncoding=utf8, UserName=root@localhost, MySQL Connector Java] will not be managed by Spring
-10:10 18:32:03.386 DEBUG c.c.p.d.t.T.insertDate:132 -> ooo Using Connection [jdbc:mysql://localhost:3306/xiaowei?useUnicode=true&amp;characterEncoding=utf8, UserName=root@localhost, MySQL Connector Java]
-10:10 18:32:03.392 DEBUG c.c.p.d.t.T.insertDate:132 -> ==>  Preparing: INSERT INTO test_date(timeOne,timeTwo,timeThree) VALUES(?,?,?) 
-10:10 18:32:03.463 DEBUG c.c.p.d.t.T.insertDate:132 -> ==> Parameters: 2015-10-10 18:32(String), 1444473123303(Long), 2015-10-10 18:32:03.303(Timestamp)
-10:10 18:32:03.473 DEBUG o.mybatis.spring.SqlSessionUtils:170 -> Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@56ace400]
-10:10 18:38:23.999 DEBUG o.a.ibatis.logging.LogFactory:115 -> Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
-10:10 18:38:24.731 DEBUG o.m.spring.SqlSessionFactoryBean:427 -> Parsed configuration file: 'class path resource [mybatis-config.xml]'
-10:10 18:38:25.407 DEBUG o.m.spring.SqlSessionFactoryBean:473 -> Property 'mapperLocations' was not specified or no matching resources found
-10:10 18:38:26.425 DEBUG o.mybatis.spring.SqlSessionUtils:106 -> Creating a new SqlSession
-10:10 18:38:26.438 DEBUG o.mybatis.spring.SqlSessionUtils:142 -> SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4f071df8] was not registered for synchronization because synchronization is not active
-10:10 18:38:26.530 DEBUG o.m.s.t.SpringManagedTransaction:85 -> JDBC Connection [jdbc:mysql://localhost:3306/xiaowei?useUnicode=true&amp;characterEncoding=utf8, UserName=root@localhost, MySQL Connector Java] will not be managed by Spring
-10:10 18:38:26.534 DEBUG c.c.p.d.t.T.insertDate:132 -> ooo Using Connection [jdbc:mysql://localhost:3306/xiaowei?useUnicode=true&amp;characterEncoding=utf8, UserName=root@localhost, MySQL Connector Java]
-10:10 18:38:26.542 DEBUG c.c.p.d.t.T.insertDate:132 -> ==>  Preparing: INSERT INTO test_date(timeOne,timeTwo,timeThree) VALUES(?,?,?) 
-10:10 18:38:26.628 DEBUG c.c.p.d.t.T.insertDate:132 -> ==> Parameters: 2015-10-10 18:38(String), 1444473506396(Long), 2015-10-10 18:38:26.396(Timestamp)
-10:10 18:38:26.638 DEBUG o.mybatis.spring.SqlSessionUtils:170 -> Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4f071df8]
-10:10 18:39:16.694 DEBUG o.a.ibatis.logging.LogFactory:115 -> Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
-10:10 18:39:17.410 DEBUG o.m.spring.SqlSessionFactoryBean:427 -> Parsed configuration file: 'class path resource [mybatis-config.xml]'
-10:10 18:39:18.055 DEBUG o.m.spring.SqlSessionFactoryBean:473 -> Property 'mapperLocations' was not specified or no matching resources found
-10:10 18:39:19.052 DEBUG o.mybatis.spring.SqlSessionUtils:106 -> Creating a new SqlSession
-10:10 18:39:19.059 DEBUG o.mybatis.spring.SqlSessionUtils:142 -> SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4f071df8] was not registered for synchronization because synchronization is not active
-10:10 18:39:19.123 DEBUG o.m.s.t.SpringManagedTransaction:85 -> JDBC Connection [jdbc:mysql://localhost:3306/xiaowei?useUnicode=true&amp;characterEncoding=utf8, UserName=root@localhost, MySQL Connector Java] will not be managed by Spring
-10:10 18:39:19.127 DEBUG c.c.p.d.t.T.insertDate:132 -> ooo Using Connection [jdbc:mysql://localhost:3306/xiaowei?useUnicode=true&amp;characterEncoding=utf8, UserName=root@localhost, MySQL Connector Java]
-10:10 18:39:19.134 DEBUG c.c.p.d.t.T.insertDate:132 -> ==>  Preparing: INSERT INTO test_date(timeOne,timeTwo,timeThree) VALUES(?,?,?) 
-10:10 18:39:19.218 DEBUG c.c.p.d.t.T.insertDate:132 -> ==> Parameters: 2015-10-10 18:39(String), 1444473559044(Long), 2015-10-10 18:39:19.044(Timestamp)
-10:10 18:39:19.224 DEBUG o.mybatis.spring.SqlSessionUtils:170 -> Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4f071df8]
-10:10 18:43:24.638 DEBUG o.a.ibatis.logging.LogFactory:115 -> Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
-10:10 18:43:25.142 DEBUG o.m.spring.SqlSessionFactoryBean:427 -> Parsed configuration file: 'class path resource [mybatis-config.xml]'
-10:10 18:43:25.528 DEBUG o.m.spring.SqlSessionFactoryBean:473 -> Property 'mapperLocations' was not specified or no matching resources found
-10:10 18:43:26.509 DEBUG o.mybatis.spring.SqlSessionUtils:106 -> Creating a new SqlSession
-10:10 18:43:26.520 DEBUG o.mybatis.spring.SqlSessionUtils:142 -> SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4f071df8] was not registered for synchronization because synchronization is not active
-10:10 18:43:26.606 DEBUG o.m.s.t.SpringManagedTransaction:85 -> JDBC Connection [jdbc:mysql://localhost:3306/xiaowei?useUnicode=true&amp;characterEncoding=utf8, UserName=root@localhost, MySQL Connector Java] will not be managed by Spring
-10:10 18:43:26.610 DEBUG c.c.p.d.t.T.insertDate:132 -> ooo Using Connection [jdbc:mysql://localhost:3306/xiaowei?useUnicode=true&amp;characterEncoding=utf8, UserName=root@localhost, MySQL Connector Java]
-10:10 18:43:26.616 DEBUG c.c.p.d.t.T.insertDate:132 -> ==>  Preparing: INSERT INTO test_date(timeOne,timeTwo,timeThree) VALUES(?,?,?) 
-10:10 18:43:26.689 DEBUG c.c.p.d.t.T.insertDate:132 -> ==> Parameters: 2015-10-10 18:43(String), 1444473806502(Long), 2015-10-10 18:43:26.502(Timestamp)
-10:10 18:43:26.698 DEBUG o.mybatis.spring.SqlSessionUtils:170 -> Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4f071df8]
+10:12 13:15:50.579 DEBUG o.a.ibatis.logging.LogFactory:115 -> Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+10:12 13:15:50.995 DEBUG o.m.spring.SqlSessionFactoryBean:427 -> Parsed configuration file: 'class path resource [mybatis-config.xml]'
+10:12 13:15:51.370 DEBUG o.m.spring.SqlSessionFactoryBean:473 -> Property 'mapperLocations' was not specified or no matching resources found
+10:12 13:18:09.289 DEBUG o.a.ibatis.logging.LogFactory:115 -> Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+10:12 13:18:09.689 DEBUG o.m.spring.SqlSessionFactoryBean:427 -> Parsed configuration file: 'class path resource [mybatis-config.xml]'
+10:12 13:18:10.019 DEBUG o.m.spring.SqlSessionFactoryBean:473 -> Property 'mapperLocations' was not specified or no matching resources found
+10:12 13:19:29.959 DEBUG o.a.ibatis.logging.LogFactory:115 -> Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+10:12 13:19:30.220 DEBUG o.m.spring.SqlSessionFactoryBean:427 -> Parsed configuration file: 'class path resource [mybatis-config.xml]'
+10:12 13:19:30.586 DEBUG o.m.spring.SqlSessionFactoryBean:473 -> Property 'mapperLocations' was not specified or no matching resources found
+10:12 13:21:01.320 DEBUG o.a.ibatis.logging.LogFactory:115 -> Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+10:12 13:21:01.627 DEBUG o.m.spring.SqlSessionFactoryBean:427 -> Parsed configuration file: 'class path resource [mybatis-config.xml]'
+10:12 13:21:01.960 DEBUG o.m.spring.SqlSessionFactoryBean:473 -> Property 'mapperLocations' was not specified or no matching resources found
+10:12 13:22:54.301 DEBUG o.a.ibatis.logging.LogFactory:115 -> Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+10:12 13:22:54.617 DEBUG o.m.spring.SqlSessionFactoryBean:427 -> Parsed configuration file: 'class path resource [mybatis-config.xml]'
+10:12 13:22:54.956 DEBUG o.m.spring.SqlSessionFactoryBean:473 -> Property 'mapperLocations' was not specified or no matching resources found
+10:12 14:06:04.471 DEBUG o.a.ibatis.logging.LogFactory:115 -> Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+10:12 14:06:04.747 DEBUG o.m.spring.SqlSessionFactoryBean:427 -> Parsed configuration file: 'class path resource [mybatis-config.xml]'
+10:12 14:06:05.064 DEBUG o.m.spring.SqlSessionFactoryBean:473 -> Property 'mapperLocations' was not specified or no matching resources found
+10:12 14:41:26.730 DEBUG o.a.ibatis.logging.LogFactory:115 -> Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+10:12 14:41:27.040 DEBUG o.m.spring.SqlSessionFactoryBean:427 -> Parsed configuration file: 'class path resource [mybatis-config.xml]'
+10:12 14:41:27.390 DEBUG o.m.spring.SqlSessionFactoryBean:473 -> Property 'mapperLocations' was not specified or no matching resources found
+10:12 14:42:57.758 DEBUG o.a.ibatis.logging.LogFactory:115 -> Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+10:12 14:42:58.136 DEBUG o.m.spring.SqlSessionFactoryBean:427 -> Parsed configuration file: 'class path resource [mybatis-config.xml]'
+10:12 14:42:58.492 DEBUG o.m.spring.SqlSessionFactoryBean:473 -> Property 'mapperLocations' was not specified or no matching resources found
+10:12 14:44:52.832 DEBUG o.a.ibatis.logging.LogFactory:115 -> Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+10:12 14:44:53.031 DEBUG o.m.spring.SqlSessionFactoryBean:427 -> Parsed configuration file: 'class path resource [mybatis-config.xml]'
+10:12 14:44:53.327 DEBUG o.m.spring.SqlSessionFactoryBean:473 -> Property 'mapperLocations' was not specified or no matching resources found
+10:12 14:44:54.397 DEBUG o.m.spring.SqlSessionFactoryBean:427 -> Parsed configuration file: 'class path resource [mybatis-config.xml]'
+10:12 14:44:54.440 DEBUG o.m.spring.SqlSessionFactoryBean:473 -> Property 'mapperLocations' was not specified or no matching resources found
+10:12 14:45:03.367 DEBUG o.mybatis.spring.SqlSessionUtils:106 -> Creating a new SqlSession
+10:12 14:45:03.377 DEBUG o.mybatis.spring.SqlSessionUtils:142 -> SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@62c5bbdc] was not registered for synchronization because synchronization is not active
+10:12 14:45:03.411 DEBUG o.m.s.t.SpringManagedTransaction:85 -> JDBC Connection [jdbc:mysql://localhost:3306/xiaowei?useUnicode=true&amp;characterEncoding=utf8, UserName=root@localhost, MySQL Connector Java] will not be managed by Spring
+10:12 14:45:03.412 DEBUG c.c.p.d.t.T.insertDate:132 -> ooo Using Connection [jdbc:mysql://localhost:3306/xiaowei?useUnicode=true&amp;characterEncoding=utf8, UserName=root@localhost, MySQL Connector Java]
+10:12 14:45:03.416 DEBUG c.c.p.d.t.T.insertDate:132 -> ==>  Preparing: INSERT INTO test_date(timeOne,timeTwo,timeThree) VALUES(?,?,?) 
+10:12 14:45:03.458 DEBUG c.c.p.d.t.T.insertDate:132 -> ==> Parameters: 2015-10-12 14:45(String), 1444632303359(Long), 2015-10-12 14:45:03.359(Timestamp)
+10:12 14:45:03.464 DEBUG o.mybatis.spring.SqlSessionUtils:170 -> Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@62c5bbdc]
+10:12 14:45:03.471 DEBUG o.mybatis.spring.SqlSessionUtils:106 -> Creating a new SqlSession
+10:12 14:45:03.471 DEBUG o.mybatis.spring.SqlSessionUtils:142 -> SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@79c4715d] was not registered for synchronization because synchronization is not active
+10:12 14:45:03.474 DEBUG o.m.s.t.SpringManagedTransaction:85 -> JDBC Connection [jdbc:mysql://localhost:3306/xiaowei?useUnicode=true&amp;characterEncoding=utf8, UserName=root@localhost, MySQL Connector Java] will not be managed by Spring
+10:12 14:45:03.475 DEBUG c.c.p.d.t.T.deleteDateById:132 -> ooo Using Connection [jdbc:mysql://localhost:3306/xiaowei?useUnicode=true&amp;characterEncoding=utf8, UserName=root@localhost, MySQL Connector Java]
+10:12 14:45:03.476 DEBUG c.c.p.d.t.T.deleteDateById:132 -> ==>  Preparing: DELETE FROM test_date WHERE id=? 
+10:12 14:45:03.477 DEBUG c.c.p.d.t.T.deleteDateById:132 -> ==> Parameters: 1(Integer)
+10:12 14:45:03.479 DEBUG o.mybatis.spring.SqlSessionUtils:170 -> Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@79c4715d]
+10:12 14:46:57.553 DEBUG o.a.ibatis.logging.LogFactory:115 -> Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+10:12 14:46:57.756 DEBUG o.m.spring.SqlSessionFactoryBean:427 -> Parsed configuration file: 'class path resource [mybatis-config.xml]'
+10:12 14:46:58.065 DEBUG o.m.spring.SqlSessionFactoryBean:473 -> Property 'mapperLocations' was not specified or no matching resources found
+10:12 14:46:59.341 DEBUG o.m.spring.SqlSessionFactoryBean:427 -> Parsed configuration file: 'class path resource [mybatis-config.xml]'
+10:12 14:46:59.385 DEBUG o.m.spring.SqlSessionFactoryBean:473 -> Property 'mapperLocations' was not specified or no matching resources found

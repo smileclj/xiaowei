@@ -15,7 +15,7 @@
     <slf4j.version>1.7.5</slf4j.version>
     <logback.version>1.0.12</logback.version>
     <webapp.contextPath.test>/</webapp.contextPath.test>
-    <webapp.port.test>8080</webapp.port.test>
+    <webapp.port.test>8888</webapp.port.test>
   </properties>
 
   <dependencies>
@@ -307,6 +307,15 @@
           <encoding>UTF-8</encoding>
           <debug>true</debug>
           <optimize>true</optimize>
+        </configuration>
+      </plugin>
+
+      <!--编译时跳过test-->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <configuration>
+          <skip>true</skip>
         </configuration>
       </plugin>
 
