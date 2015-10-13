@@ -6,6 +6,9 @@
 package com.clj.panda.web.interceptors;
 
 import com.alibaba.fastjson.JSON;
+import com.clj.panda.common.enums.PandaCode;
+import com.clj.panda.common.exceptions.PandaException;
+import com.clj.panda.common.resp.Result;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.method.HandlerMethod;
@@ -29,73 +32,51 @@ import java.lang.reflect.Method;
 public class PandaExceptionInterceptor extends ExceptionHandlerExceptionResolver {
     private final Logger logger = LoggerFactory.getLogger(getClass());
 
-    private String defaultErrorView = "404";
-
-    public String getDefaultErrorView() {
-        return defaultErrorView;
-    }
-
-    public void setDefaultErrorView(String defaultErrorView) {
-        this.defaultErrorView = defaultErrorView;
-    }
+    private static final String defaultErrorView = "/page/404";
 
     @Override
     protected ModelAndView doResolveHandlerMethodException(HttpServletRequest request, HttpServletResponse response,
             HandlerMethod handlerMethod, Exception e) {
-        String callback = request.getParameter("callback");
-        if (handlerMethod == null) {
-            return null;
-        }
+        //打印错误日志
+        logger.error(e.getMessage());
+
         Method method = handlerMethod.getMethod();
-        if (method == null) {
-            return null;
+        //如果返回类型是ModelAndView
+        if(method.getReturnType().getName().equals(ModelAndView.class.getName())){
+            return new ModelAndView(defaultErrorView);
+        }else{
+            try {
+                response.setContentType("application/json; charset=utf-8");
+                PrintWriter writer = response.getWriter();
+                Result result = new Result();
+                if (e instanceof PandaException) {
+                    result.setCode(((PandaException) e).getErrorCode());
+                }
+                //主键冲突
+                else if (e instanceof org.springframework.dao.DuplicateKeyException) {
+                    result.setCode(PandaCode.ERROR_REPEAT);
+                }
+                else if (e.getCause() instanceof java.net.ConnectException) {
+                    result.setCode(PandaCode.ACTION_NOT_EXIST);
+                }
+                else {
+                    result.setCode(PandaCode.UNKNOW);
+                }
+                writer.write(JSON.toJSONString(result));
+                return new ModelAndView();
+            }
+            catch (IOException ioe) {
+                logger.error("exception io error");
+            }
+            finally {
+                try {
+                    response.getWriter().close();
+                }
+                catch (IOException e1) {
+                    logger.error("exception close error");
+                }
+            }
+            return new ModelAndView(defaultErrorView);
         }
-//        if (StringUtils.isNotBlank(callback)) {
-//            return new ModelAndView(defaultErrorView);
-//        }
-//        try {
-//            response.setContentType("application/json; charset=utf-8");
-//            PrintWriter writer = response.getWriter();
-//            Result result = new Result();
-//            if (e instanceof TodoException) {
-//                logger.error(e.getMessage());
-//                result.setCode(((TodoException) e).getErrorCode());
-//                result.setResult(e.getCause()==null?e.getMessage():e.getCause().getMessage());
-//            }
-//            else if (e instanceof org.springframework.dao.DuplicateKeyException) {
-//                logger.error(e.getMessage());
-//                result.setCode(TodoCode.ERROR_REPEAT);
-//            }
-//            else if (e.getCause() instanceof java.io.WriteAbortedException) {
-//                logger.error(e.getMessage());
-//                result.setCode(TodoCode.INPUT_ERROR);
-//            }
-//            else if (e.getCause() instanceof IllegalStateException) {
-//                logger.error(e.getMessage());
-//                result.setCode(TodoCode.INPUT_ERROR);
-//            }
-//            else if (e.getCause() instanceof java.net.ConnectException) {
-//                logger.error(e.getMessage());
-//                result.setCode(TodoCode.ACTION_NOT_EXIST);
-//            }
-//            else {
-//                e.printStackTrace();
-//                result.setCode(TodoCode.UNKNOW);
-//            }
-//            writer.write(JSON.toJSONString(result));
-//            return new ModelAndView();
-//        }
-//        catch (IOException ioe) {
-//            logger.info("exception io error");
-//        }
-//        finally {
-//            try {
-//                response.getWriter().close();
-//            }
-//            catch (IOException e1) {
-//                logger.info("exception close error");
-//            }
-//        }
-        return new ModelAndView(defaultErrorView);
     }
 }

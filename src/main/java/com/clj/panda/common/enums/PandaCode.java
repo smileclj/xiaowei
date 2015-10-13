@@ -6,6 +6,8 @@ package com.clj.panda.common.enums;
 public enum PandaCode {
     SUCCESS(1, "成功"),
     ERROR_PARAM(2, "参数错误"),
+    ERROR_REPEAT(3, "重复操作"),
+    ACTION_NOT_EXIST(4,"接口不存在"),
     UNKNOW(0, "未知错误");
 
     private PandaCode(int value, String msg) {

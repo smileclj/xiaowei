@@ -15,7 +15,7 @@ public class Result implements Serializable{
     private long serverTime; //服务器时间
     private Object result; //返回内容
 
-    private Result() {
+    public Result() {
         this.serverTime = System.currentTimeMillis();
         this.result = new HashMap<String, Object>();
     }
@@ -40,8 +40,8 @@ public class Result implements Serializable{
         return code;
     }
 
-    public void setCode(int code) {
-        this.code = code;
+    public void setCode(PandaCode code) {
+        this.code = code.getValue();
     }
 
     public long getServerTime() {

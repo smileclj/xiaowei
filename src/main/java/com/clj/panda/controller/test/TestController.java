@@ -1,6 +1,7 @@
 package com.clj.panda.controller.test;
 
 import com.clj.panda.common.enums.PandaCode;
+import com.clj.panda.common.exceptions.PandaException;
 import com.clj.panda.common.resp.Result;
 import com.clj.panda.service.TestService;
 import org.slf4j.Logger;
@@ -34,7 +35,10 @@ public class TestController {
     private TestService userService;
 
     @RequestMapping(value="/testView.htm")
-    public ModelAndView testView(){
+    public ModelAndView testView(@RequestParam("id") String id){
+        if(id == null || id.equals("")){
+            throw new PandaException(PandaCode.ERROR_PARAM);
+        }
         ModelAndView view = new ModelAndView("page/test/TestJsp");
         view.addObject("user","panda");
         return view;
@@ -45,7 +49,10 @@ public class TestController {
      * @return
      */
     @RequestMapping(value="/testJson.htm")
-    public Result testJson(){
+    public Result testJson(@RequestParam("id") String id){
+        if(id == null || id.equals("")){
+            throw new PandaException(PandaCode.ERROR_PARAM);
+        }
         Map<String,Object> map = new HashMap<String,Object>();
         map.put("user","clj");
         return new Result(PandaCode.SUCCESS,map);

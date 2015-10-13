@@ -29,4 +29,8 @@ public class PandaException extends RuntimeException{
             return null;
         }
     }
+
+    public PandaCode getErrorCode() {
+        return this.code;
+    }
 }

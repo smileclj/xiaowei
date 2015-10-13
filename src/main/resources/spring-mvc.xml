@@ -23,6 +23,7 @@
 
             <!--使用fastjson-->
             <bean class="com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter">
+            <!--<bean class="com.clj.panda.web.FastJsonHttpMessageConverter">-->
                 <property name="supportedMediaTypes" value="text/html;charset=UTF-8"/>
                 <property name="features">
                     <array>
@@ -48,47 +49,30 @@
         </property>
     </bean>
 
+    <!--对jsonp的支持 不确定vti使用方式-->
     <bean class="org.springframework.web.servlet.view.json.MappingJackson2JsonView">
         <property name="jsonpParameterNames">
             <set>
                 <value>jsonp</value>
+                <!--回调函数-->
                 <value>callback</value>
             </set>
         </property>
     </bean>
+
+    <!--全局异常统一处理-->
+    <bean class="com.clj.panda.web.interceptors.PandaExceptionInterceptor"></bean>
     
-    <!--<mvc:interceptors>-->
-        <!--<mvc:interceptor>-->
-            <!--&lt;!&ndash; 默认所有的请求都进行拦截 &ndash;&gt;-->
-            <!--<mvc:mapping path="/**" />-->
-            <!--<mvc:exclude-mapping path="/return404.htm" />-->
-            <!--<mvc:exclude-mapping path="/login.htm" />-->
-            <!--<mvc:exclude-mapping path="/loginByPwd.htm" />-->
-            <!--<mvc:exclude-mapping path="/getFinalAddr.htm" />-->
-            <!--<mvc:exclude-mapping path="/sms/sendVerifyCodeSms.htm" />-->
-            <!--<mvc:exclude-mapping path="/sms/checkSmsVerifyCode.htm" />-->
-            <!--<mvc:exclude-mapping path="/addPwd.htm" />-->
-            <!--<mvc:exclude-mapping path="/em/modifyPwd.htm" />-->
-            <!--<mvc:exclude-mapping path="/getSysTime.htm" />-->
-            <!--<mvc:exclude-mapping path="/qz/removeExpireFile.htm" />-->
-            <!--<mvc:exclude-mapping path="/qz/updateCompanyOptions.htm" />-->
-            <!--<mvc:exclude-mapping path="/qz/btsInit.htm" />-->
-            <!--<mvc:exclude-mapping path="/qz/topicInit.htm" />-->
-            <!--<mvc:exclude-mapping path="/qz/formTemplateItemInit.htm" />-->
-            <!--<mvc:exclude-mapping path="/data/**" />-->
-             <!--<bean class="com.benhe.todo.ws.client.SpringInterceptor"></bean>-->
-        <!--</mvc:interceptor>-->
-        <!--<mvc:interceptor>-->
-            <!--&lt;!&ndash; 默认所有的请求都进行拦截 &ndash;&gt;-->
-            <!--<mvc:mapping path="/data/**" />-->
-            <!--<bean class="com.benhe.todo.ws.client.SpringOutInterceptor"></bean>-->
-        <!--</mvc:interceptor>-->
-    <!--</mvc:interceptors>-->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <!-- 默认所有的请求都进行拦截 -->
+            <mvc:mapping path="/**" />
+            <mvc:exclude-mapping path="/out/**" />
+            <bean class="com.clj.panda.web.interceptors.PandaInterceptor"></bean>
+        </mvc:interceptor>
+    </mvc:interceptors>
 
-    <!-- 定义首页 -->
-    <!--<mvc:view-controller path="/" view-name="redirect:/return404.htm" />-->
-
-    <!-- 定义JSP -->
+    <!-- 定义JSP视图解析器 -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/" />
         <property name="suffix" value=".jsp" />
