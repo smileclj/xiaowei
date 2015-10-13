@@ -49,7 +49,7 @@
         </property>
     </bean>
 
-    <!--对jsonp的支持 不确定vti使用方式-->
+    <!--对jsonp的支持 不确定使用方式-->
     <bean class="org.springframework.web.servlet.view.json.MappingJackson2JsonView">
         <property name="jsonpParameterNames">
             <set>
