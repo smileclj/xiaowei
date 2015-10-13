@@ -1,5 +1,7 @@
 package com.clj.panda.controller.test;
 
+import com.clj.panda.common.enums.PandaCode;
+import com.clj.panda.common.resp.Result;
 import com.clj.panda.service.TestService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,6 +19,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by lao on 2015/9/28.
@@ -34,6 +38,17 @@ public class TestController {
         ModelAndView view = new ModelAndView("page/test/TestJsp");
         view.addObject("user","panda");
         return view;
+    }
+
+    /**
+     * 返回json数据
+     * @return
+     */
+    @RequestMapping(value="/testJson.htm")
+    public Result testJson(){
+        Map<String,Object> map = new HashMap<String,Object>();
+        map.put("user","clj");
+        return new Result(PandaCode.SUCCESS,map);
     }
 
     @RequestMapping(value="/getUser.htm")
