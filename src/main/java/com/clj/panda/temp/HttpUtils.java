@@ -48,7 +48,6 @@ import com.benhe.wolf.util.StringUtils;
  * @version $Revision$, $Date$
  */
 public abstract class HttpUtils {
-
     private static final Logger logger = LoggerFactory.getLogger(HttpUtils.class);
 
     // 默认连接超时时间: 30s

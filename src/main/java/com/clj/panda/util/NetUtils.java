@@ -1,11 +1,10 @@
 package com.clj.panda.util;
 
+import com.alibaba.fastjson.JSON;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.Map;
@@ -26,17 +25,18 @@ public class NetUtils {
     /**
      *
      * @param url 请求地址
-     * @param params 请求参数
+     * @param params 请求参数 json格式
      * @param encoding 编码
      * @param connectionTimeout 连接超时时间
      * @param readTimeout 响应超时时间
+     * @param isPost 是否post提交
      * @return
      * @throws IOException
      */
-    public static String get(String url, Map<String,Object> params,String encoding, int connectionTimeout, int readTimeout)
-            throws IOException {
+    public static String request(String url, String params,String encoding, int connectionTimeout, int readTimeout,boolean isPost){
         String result = null;
-        BufferedReader reader = null;
+        BufferedReader in = null;
+        PrintWriter out = null;
         try {
             URLConnection connection = new URL(url).openConnection();
             // 设置通用的请求属性
@@ -46,27 +46,46 @@ public class NetUtils {
 
             connection.setConnectTimeout(connectionTimeout);
             connection.setReadTimeout(readTimeout);
-            connection.connect();
-            reader = new BufferedReader(new InputStreamReader(connection.getInputStream(), encoding), 8 * 1024);
+
+            out = new PrintWriter(new OutputStreamWriter(connection.getOutputStream(),DEFAULT_ENCODE),true);
+            out.print(params);
+
+            in = new BufferedReader(new InputStreamReader(connection.getInputStream(), encoding), 8 * 1024);
             String line = null;
-            StringBuffer buffer = new StringBuffer();
-            while ((line = reader.readLine()) != null) {
-                buffer.append(line + "\n");
+            while ((line = in.readLine()) != null) {
+                result += line;
             }
-            result = buffer.toString();
         }
         catch (IOException e) {
-            throw e;
+            logger.error("get请求失败",e);
         }
         finally {
-            if (reader != null) {
+            boolean success = true;
+            if (in != null) {
                 try {
-                    reader.close();
+                    in.close();
                 }
-                catch (IOException e1) {
+                catch (IOException e) {
+                    success = false;
                 }
+            }
+            if(out != null){
+                try{
+                    out.close();
+                }catch (Exception e){
+                    success = false;
+                }
+            }
+            if(!success){
+                return null;
             }
         }
         return result;
     }
+
+//    public static String get(String url, String params){
+//        return get(url,params,DEFAULT_ENCODE,DEFAULT_CONNECTION_TIMEOUT,DEFAULT_READ_TIMEOUT);
+//    }
+
+
 }
