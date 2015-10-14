@@ -1,4 +1,4 @@
-import com.clj.panda.dao.test.TestDateMapper;
+import com.clj.panda.mapper.test.TestDateMapper;
 import com.clj.panda.model.entity.test.TestDate;
 import org.junit.Test;
 import org.junit.runner.RunWith;

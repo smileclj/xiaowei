@@ -28,7 +28,7 @@ CREATE TABLE `test_course` (
   `id` char(32) COLLATE utf8mb4_bin NOT NULL,
   `name` varchar(50) COLLATE utf8mb4_bin DEFAULT NULL,
   `remark` varchar(200) COLLATE utf8mb4_bin DEFAULT NULL,
-  `creationTime` mediumtext COLLATE utf8mb4_bin,
+  `creationTime` bigint(20) COLLATE utf8mb4_bin,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -103,7 +103,7 @@ CREATE TABLE `test_student` (
   `name` varchar(50) COLLATE utf8mb4_bin DEFAULT NULL,
   `age` int(11) DEFAULT NULL,
   `remark` varchar(200) COLLATE utf8mb4_bin DEFAULT NULL,
-  `creationTime` mediumtext COLLATE utf8mb4_bin,
+  `creationTime` bigint(20) COLLATE utf8mb4_bin,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;

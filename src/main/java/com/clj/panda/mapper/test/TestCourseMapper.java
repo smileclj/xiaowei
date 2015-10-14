@@ -1,6 +1,6 @@
-package com.clj.panda.dao.test;
+package com.clj.panda.mapper.test;
 
-import com.clj.panda.model.entity.test.TestDate;
+import com.clj.panda.model.entity.test.TestCourse;
 import com.clj.panda.model.entity.test.TestStudent;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
@@ -8,26 +8,26 @@ import org.springframework.stereotype.Repository;
 /**
  * Created by lao on 2015/9/28.
  */
-@Repository("testDateMapper")
-public interface TestDateMapper {
+@Repository("testCourseMapper")
+public interface TestCourseMapper {
     /**
      * 添加
-     * @param date
+     * @param course
      * @return
      */
-    int insertDate(TestDate date);
+    int insertCourse(TestCourse course);
 
     /**
      * 根据主键查询
      * @param id
      * @return
      */
-    TestDate selectDateById(@Param("id") int id);
+    TestStudent selectCourseById(@Param("id") String id);
 
     /**
      * 根据主键删除
      * @param id
      * @return
      */
-    int deleteDateById(@Param("id") int id);
+    int deleteCourseById(@Param("id") String id);
 }

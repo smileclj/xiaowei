@@ -1,7 +1,6 @@
 package com.clj.panda.service.impl;
 
-import com.clj.panda.dao.test.TestStudentMapper;
-import com.clj.panda.model.entity.test.TestStudent;
+import com.clj.panda.mapper.test.TestStudentMapper;
 import com.clj.panda.service.TestService;
 import org.springframework.stereotype.Service;
 
