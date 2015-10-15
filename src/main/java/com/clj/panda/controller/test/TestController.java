@@ -17,9 +17,7 @@ import javax.annotation.Resource;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
+import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -51,55 +49,84 @@ public class TestController {
             throw new PandaException(PandaCode.ERROR_PARAM);
         }
         Map<String,Object> map = new HashMap<String,Object>();
-        map.put("user","clj");
+        map.put("user", "clj");
         return new Result(PandaCode.SUCCESS,map);
     }
 
     @RequestMapping(value="/singleUpload.htm")
-    public String singleUpload(MultipartFile file,String comment,HttpServletRequest request,HttpServletResponse response){
+    public Result singleUpload(MultipartFile file,String comment,HttpServletRequest request,HttpServletResponse response){
         logger.debug("单文件上传");
         logger.debug("comment:"+comment);
         logger.debug(file.getOriginalFilename());
-        return "success";
+        return new Result(PandaCode.SUCCESS);
     }
 
     @RequestMapping(value="/multiUpload.htm")
-    public String multiUpload(@RequestParam(value="file")CommonsMultipartFile[] files,String comment,HttpServletRequest request,HttpServletResponse response){
+    public Result multiUpload(@RequestParam(value="file")CommonsMultipartFile[] files,String comment,HttpServletRequest request,HttpServletResponse response){
         logger.debug("多文件上传");
         logger.debug("comment:"+comment);
         for(int i = 0;i<files.length;i++){
             logger.debug(files[i].getOriginalFilename());
         }
-        return "success";
+        return new Result(PandaCode.SUCCESS);
     }
 
-    @RequestMapping(value="/downloadOne")
+    @RequestMapping(value="/downloadOne.htm")
     public void downloadOne(HttpServletRequest request,HttpServletResponse response){
-        response.setContentType("text/plain; charset=utf-8");
-        boolean isExist = true;
-        FileInputStream fis = null;
-        try{
-            File file = new File("D:\\test.txt");
-            fis = new FileInputStream(file);
-        }catch(Exception e){
-            isExist = false;
-        }
+        String fileSource = request.getServletContext().getRealPath("/") + "file" + File.separator + "test.txt";
+        logger.info("file path == " + fileSource);
+//        response.setContentType(request.getServletContext().getMimeType(fileSource.substring(fileSource.lastIndexOf("\\")+1)));
+        //设置文件ContentType类型，这样设置，会自动判断下载文件类型
+        response.setContentType("multipart/form-data");
+        response.setHeader("Content-Disposition", "attachment;filename=test.txt");
+        BufferedInputStream in = null;
+        BufferedOutputStream out = null;
 
-        ServletOutputStream ss = null;
         try {
-            ss = response.getOutputStream();
-            if(isExist){
-                while(fis.available()>0){
-                    ss.write(fis.read());
-                }
-            }else{
-                response.setContentLength(0);
-                ss.write("".getBytes());
+            in = new BufferedInputStream(new FileInputStream(new File(fileSource)));
+            out = new BufferedOutputStream(response.getOutputStream());
+            byte[] buff = new byte[1024];
+            int b = 0;
+            while((b=in.read(buff)) != -1){ //b是读取的总字节数
+                out.write(buff,0,b);
             }
-            ss.flush();
-            ss.close();
+            out.flush();
+        } catch (FileNotFoundException e) {
+            logger.error("文件不存在" + e);
+            throw new PandaException(PandaCode.FILE_NOT_EXIST);
+        } catch (IOException e){
+            throw new PandaException(PandaCode.UNKNOW);
+        } finally {
+            if(in != null){
+                try {
+                    in.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                if(out != null){
+                    try {
+                        out.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }
+    }
+
+    /**
+     * 打印输出方法
+     * 容器会帮忙关闭
+     * @param response
+     * @param data
+     */
+    public void print(HttpServletResponse response, Object data) {
+        response.setCharacterEncoding("UTF-8");
+        try {
+            PrintWriter pw = response.getWriter();
+            pw.write(data.toString());
         } catch (IOException e) {
-            logger.error("",e);
+            e.printStackTrace();
         }
     }
 }

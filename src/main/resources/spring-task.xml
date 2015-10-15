@@ -8,8 +8,8 @@
     <bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean" lazy-init="false">
         <property name="triggers">
             <list>
-                <!--<ref bean="testTrigger1"/>-->
-                <!--<ref bean="testTrigger2"/>-->
+                <ref bean="testTrigger1"/>
+                <ref bean="testTrigger2"/>
             </list>
         </property>
     </bean>

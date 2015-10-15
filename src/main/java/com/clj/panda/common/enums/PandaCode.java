@@ -8,6 +8,7 @@ public enum PandaCode {
     ERROR_PARAM(2, "参数错误"),
     ERROR_REPEAT(3, "重复操作"),
     ACTION_NOT_EXIST(4,"接口不存在"),
+    FILE_NOT_EXIST(5,"文件不存在"),
     UNKNOW(0, "未知错误");
 
     private PandaCode(int value, String msg) {
