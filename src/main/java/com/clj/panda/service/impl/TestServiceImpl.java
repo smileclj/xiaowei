@@ -11,8 +11,5 @@ import javax.annotation.Resource;
  */
 @Service
 public class TestServiceImpl implements TestService {
-    @Resource
-    private TestStudentMapper userMapper;
-
 
 }

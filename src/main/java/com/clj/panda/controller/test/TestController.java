@@ -31,9 +31,6 @@ import java.util.Map;
 public class TestController {
     private final Logger logger = LoggerFactory.getLogger(getClass());
 
-    @Resource
-    private TestService userService;
-
     @RequestMapping(value="/testView.htm")
     public ModelAndView testView(@RequestParam("id") String id){
         if(id == null || id.equals("")){
@@ -56,12 +53,6 @@ public class TestController {
         Map<String,Object> map = new HashMap<String,Object>();
         map.put("user","clj");
         return new Result(PandaCode.SUCCESS,map);
-    }
-
-    @RequestMapping(value="/getUser.htm")
-    public String getUser(){
-//        return userService.findUserById("1").getName();
-        return null;
     }
 
     @RequestMapping(value="/singleUpload.htm")
