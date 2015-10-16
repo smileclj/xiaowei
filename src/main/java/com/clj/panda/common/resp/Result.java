@@ -23,6 +23,7 @@ public class Result implements Serializable{
     public Result(PandaCode pandaCode) {
         super();
         this.code = pandaCode.getValue();
+        this.result = new HashMap<String, Object>();
     }
 
     public Result(PandaCode pandaCode, Object result) {

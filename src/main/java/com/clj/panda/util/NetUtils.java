@@ -19,9 +19,9 @@ public class NetUtils {
     private static Logger logger = LoggerFactory.getLogger(NetUtils.class);
 
     // 默认连接超时时间: 30s
-    private static final int DEFAULT_CONNECTION_TIMEOUT = 1000 * 6;
+    private static final int DEFAULT_CONNECTION_TIMEOUT = 1000 * 20;
     // 默认读取超时时间: 30s
-    private static final int DEFAULT_READ_TIMEOUT = 1000 * 6;
+    private static final int DEFAULT_READ_TIMEOUT = 1000 * 20;
     // 默认编码
     private static final String DEFAULT_ENCODE = "UTF-8";
     //文件上传默认key
@@ -341,8 +341,8 @@ public class NetUtils {
 
     public static void main(String[] args) {
 //        String commonUrl = "http://localhost:8888/test/testJson.htm";
-//        System.out.println(NetUtils.get(commonUrl,"id=1"));
-//        System.out.println(NetUtils.post(commonUrl,"id=1"));
+//        System.out.println(NetUtils.get(commonUrl,"id=小明"));
+//        System.out.println(NetUtils.post(commonUrl,"id=小明"));
 
 //        String downloadUrl = "http://localhost:8888/test/downloadOne.htm";
 //        NetUtils.downloadFile(downloadUrl,null,new File("D:\\d.txt"));
@@ -351,7 +351,7 @@ public class NetUtils {
         Map<String,String> params = new HashMap<>();
         params.put("comment", "说明");
         Map<String,File> files = new HashMap<>();
-        files.put("file",new File("D:\\test.txt"));
-        NetUtils.uploadFiles(uploadUrl, params, files);
+        files.put("file", new File("D:\\test.txt"));
+        System.out.println(NetUtils.uploadFiles(uploadUrl, params, files));
     }
 }

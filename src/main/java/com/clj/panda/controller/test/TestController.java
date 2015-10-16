@@ -50,6 +50,7 @@ public class TestController {
         }
         Map<String,Object> map = new HashMap<String,Object>();
         map.put("user", "clj");
+        map.put("id",id);
         return new Result(PandaCode.SUCCESS,map);
     }
 
