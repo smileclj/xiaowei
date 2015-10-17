@@ -18,6 +18,8 @@ import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -48,9 +50,11 @@ public class TestController {
         if(id == null || id.equals("")){
             throw new PandaException(PandaCode.ERROR_PARAM);
         }
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         Map<String,Object> map = new HashMap<String,Object>();
         map.put("user", "clj");
         map.put("id",id);
+//        map.put("date",sdf.format(date));
         return new Result(PandaCode.SUCCESS,map);
     }
 
